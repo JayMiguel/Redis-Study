@@ -5,7 +5,9 @@ import redis.clients.jedis.Jedis;
 public class TestBasic {
 
     public static void main(String[] args) {
+        // 1.连接redis
         Jedis jedis = new Jedis("127.0.0.1", 6379);
+        // 2.命令操作
         System.out.println("select: 选择索引为3的数据库: " + jedis.select(3));
         System.out.println("选择索引为0的数据库: " + jedis.select(0));
         System.out.println("set: 设置<'username','Miguel'>键值对: " + jedis.set("username", "Miguel"));
@@ -20,5 +22,7 @@ public class TestBasic {
         System.out.println("expire: 设置key<'password'>的时效: " + jedis.expire("password", 30));
         System.out.println("ttl: 查看key<'password'>的时效: " + jedis.ttl("password"));
         System.out.println("type: 查看key<'password'>的类型: " + jedis.type("password"));
+        // 3.断开连接
+        jedis.close();
     }
 }
