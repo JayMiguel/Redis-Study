@@ -1,4 +1,4 @@
-package com.miguel;
+package com.miguel.data;
 
 import redis.clients.jedis.Jedis;
 
