@@ -34,8 +34,8 @@ class Redis02SpringbootApplicationTests {
 
         // 关于对象的保存
         User user = new User("miguel", 10);
-        String jsonUser = new ObjectMapper().writeValueAsString(user);
-        redisTemplate.opsForValue().set("user", jsonUser);
+        // String jsonUser = new ObjectMapper().writeValueAsString(user);
+        redisTemplate.opsForValue().set("user", user);
         System.out.println(redisTemplate.opsForValue().get("user"));
     }
 
